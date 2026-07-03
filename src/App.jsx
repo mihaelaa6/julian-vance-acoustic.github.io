@@ -91,8 +91,17 @@ export default function App() {
         </div>
       </section>
 
-      {/* THE BENTO CANVAS GRID */}
-      <main className="bento-grid-container">
+{/* THE BENTO CANVAS GRID */}
+      <main 
+        className="bento-grid-container"
+        style={{
+          display: typeof window !== 'undefined' && window.innerWidth < 768 ? 'flex' : 'grid',
+          flexDirection: 'column',
+          gap: '1.5rem',
+          width: '100%',
+          maxWidth: '1200px'
+        }}
+      >
         {gridData.map((card) => {
           const content = mode === 'portfolio' ? card.portfolioContent : card.companyContent;
           
@@ -100,11 +109,11 @@ export default function App() {
             <div
               key={card.id}
               style={{
-                gridArea: card.gridArea,
+                gridArea: typeof window !== 'undefined' && window.innerWidth < 768 ? 'auto' : card.gridArea,
                 backgroundColor: 'rgba(255, 255, 255, 0.02)',
                 border: '1px solid rgba(255, 255, 255, 0.06)',
                 borderRadius: '20px',
-                padding: '2.5rem',
+                padding: window.innerWidth < 768 ? '1.5rem' : '2.5rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
