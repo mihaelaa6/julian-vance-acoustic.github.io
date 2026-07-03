@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { gridData } from './gridData';
+import './App.css';
 
 export default function App() {
   const [mode, setMode] = useState('portfolio');
