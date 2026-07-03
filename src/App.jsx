@@ -53,8 +53,8 @@ export default function App() {
         alignItems: 'center',
         padding: '3rem',
         backgroundImage: mode === 'portfolio' 
-          ? 'linear-gradient(to right, rgba(11, 15, 25, 0.9) 40%, rgba(11, 15, 25, 0.2)), url("https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=1600&auto=format&fit=crop&q=80")' // Cinematic live performance
-          : 'linear-gradient(to right, rgba(11, 15, 25, 0.95) 40%, rgba(11, 15, 25, 0.4)), url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&auto=format&fit=crop&q=80")', // Packed concert stadium arena
+          ? 'linear-gradient(to right, rgba(11, 15, 25, 0.9) 40%, rgba(11, 15, 25, 0.2)), url("https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=1600&auto=format&fit=crop&q=80")' 
+          : 'linear-gradient(to right, rgba(11, 15, 25, 0.95) 40%, rgba(11, 15, 25, 0.4)), url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&auto=format&fit=crop&q=80")', 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
@@ -92,17 +92,8 @@ export default function App() {
         </div>
       </section>
 
-{/* THE BENTO CANVAS GRID */}
-      <main 
-        className="bento-grid-container"
-        style={{
-          display: typeof window !== 'undefined' && window.innerWidth < 768 ? 'flex' : 'grid',
-          flexDirection: 'column',
-          gap: '1.5rem',
-          width: '100%',
-          maxWidth: '1200px'
-        }}
-      >
+      {/* THE BENTO CANVAS GRID */}
+      <main className="bento-grid-container">
         {gridData.map((card) => {
           const content = mode === 'portfolio' ? card.portfolioContent : card.companyContent;
           
@@ -110,11 +101,11 @@ export default function App() {
             <div
               key={card.id}
               style={{
-                gridArea: typeof window !== 'undefined' && window.innerWidth < 768 ? 'auto' : card.gridArea,
+                gridArea: card.gridArea,
                 backgroundColor: 'rgba(255, 255, 255, 0.02)',
                 border: '1px solid rgba(255, 255, 255, 0.06)',
                 borderRadius: '20px',
-                padding: window.innerWidth < 768 ? '1.5rem' : '2.5rem',
+                padding: '2.5rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -173,12 +164,9 @@ export default function App() {
                         <span style={{ fontWeight: 'bold', color: mode === 'portfolio' ? '#eab308' : '#818cf8', minWidth: '100px', flex: '1 1 auto' }}>{evt.date}</span>
                         <span style={{ fontWeight: '600', minWidth: '120px', flex: '1 1 auto' }}>📍 {evt.city}</span>
                         <span style={{ opacity: 0.8, minWidth: '150px', flex: '1 1 auto' }}>🏟️ {evt.stage}</span>
-                        <span style={{ opacity: 0.5, minWidth: '150px', flex: '1 1 auto', textAlign: window.innerWidth < 768 ? 'left' : 'right', fontSize: '0.9rem' }}>{evt.detail}</span>
+                        <span style={{ opacity: 0.5, minWidth: '150px', flex: '1 1 auto', textAlign: 'right', fontSize: '0.9rem' }}>{evt.detail}</span>
                       </div>
                     ))}
-                  </div>
-                </div>
-              )}
                   </div>
                 </div>
               )}
@@ -229,7 +217,6 @@ export default function App() {
         gap: '2rem',
         textAlign: 'left'
       }}>
-        {/* Left Side: Fan Mail / Corporate Address */}
         <div>
           <h4 style={{ fontSize: '0.9rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '1rem', color: mode === 'portfolio' ? '#eab308' : '#818cf8' }}>
             {mode === 'portfolio' ? '📬 Fan Mail & Correspondence' : '🏢 Corporate Headquarters'}
@@ -253,7 +240,6 @@ export default function App() {
           </p>
         </div>
 
-        {/* Right Side: Round Circle Social Media Links */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center' }}>
           <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
             {[
