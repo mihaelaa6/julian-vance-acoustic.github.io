@@ -1,18 +1,21 @@
-/* Bulletproof Mobile Reflow for the Bento Canvas */
-@media (max-width: 767px) {
-  .bento-grid-container {
+/* Bulletproof Element-Level Override */
+@media (max-width: 768px) {
+  /* Targets the main layout container directly, regardless of its class name */
+  main {
     display: flex !important;
     flex-direction: column !important;
     gap: 1.5rem !important;
   }
 
-  .bento-grid-container > div {
+  /* Targets every card wrapper inside the canvas and forces them to full width */
+  main > div {
     grid-area: auto !important;
     padding: 1.5rem !important;
+    width: 100% !important;
   }
-  
-  /* Forces the layout details text alignment to read left cleanly on small viewports */
-  .bento-grid-container span {
+
+  /* Fixes text alignment for details */
+  main span {
     text-align: left !important;
   }
 }
