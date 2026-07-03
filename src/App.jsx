@@ -145,13 +145,30 @@ export default function App() {
                   <h3 style={{ fontSize: '1.25rem', fontWeight: '800', marginBottom: '1.5rem', opacity: 0.9 }}>{content.title}</h3>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                     {content.events.map((evt, idx) => (
-                      <div key={idx} style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', padding: '1rem', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.04)', alignItems: 'center' }}>
-                        <span style={{ fontWeight: 'bold', color: mode === 'portfolio' ? '#eab308' : '#818cf8', width: '120px' }}>{evt.date}</span>
-                        <span style={{ fontWeight: '600', width: '150px' }}>📍 {evt.city}</span>
-                        <span style={{ opacity: 0.8, width: '200px' }}>🏟️ {evt.stage}</span>
-                        <span style={{ opacity: 0.5, flex: 1, textAlign: 'right', fontSize: '0.9rem' }}>{evt.detail}</span>
+                      <div 
+                        key={idx} 
+                        style={{ 
+                          display: 'flex', 
+                          flexDirection: 'row',
+                          flexWrap: 'wrap', 
+                          gap: '1rem',
+                          justifyContent: 'space-between', 
+                          padding: '1rem', 
+                          backgroundColor: 'rgba(255,255,255,0.02)', 
+                          borderRadius: '10px', 
+                          border: '1px solid rgba(255,255,255,0.04)', 
+                          alignItems: 'center' 
+                        }}
+                      >
+                        <span style={{ fontWeight: 'bold', color: mode === 'portfolio' ? '#eab308' : '#818cf8', minWidth: '100px', flex: '1 1 auto' }}>{evt.date}</span>
+                        <span style={{ fontWeight: '600', minWidth: '120px', flex: '1 1 auto' }}>📍 {evt.city}</span>
+                        <span style={{ opacity: 0.8, minWidth: '150px', flex: '1 1 auto' }}>🏟️ {evt.stage}</span>
+                        <span style={{ opacity: 0.5, minWidth: '150px', flex: '1 1 auto', textAlign: window.innerWidth < 768 ? 'left' : 'right', fontSize: '0.9rem' }}>{evt.detail}</span>
                       </div>
                     ))}
+                  </div>
+                </div>
+              )}
                   </div>
                 </div>
               )}
