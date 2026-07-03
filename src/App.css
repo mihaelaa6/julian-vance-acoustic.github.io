@@ -1,0 +1,18 @@
+/* Bulletproof Mobile Reflow for the Bento Canvas */
+@media (max-width: 767px) {
+  .bento-grid-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  .bento-grid-container > div {
+    grid-area: auto !important;
+    padding: 1.5rem !important;
+  }
+  
+  /* Forces the layout details text alignment to read left cleanly on small viewports */
+  .bento-grid-container span {
+    text-align: left !important;
+  }
+}
