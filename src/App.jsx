@@ -92,25 +92,26 @@ export default function App() {
         </div>
       </section>
 
-      {/* THE BENTO CANVAS GRID */}
-      <main className="bento-grid-container">
-        {gridData.map((card) => {
-          const content = mode === 'portfolio' ? card.portfolioContent : card.companyContent;
-          
-          return (
-            <div
-              key={card.id}
-              style={{
-                gridArea: card.gridArea,
-                backgroundColor: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
-                borderRadius: '20px',
-                padding: '2.5rem',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-              }}
+     {/* DYNAMIC BENTO CANVAS */}
+<main className="bento-grid-container">
+  {gridData.map((card) => {
+    const content = mode === 'portfolio' ? card.portfolioContent : card.companyContent;
+    
+    return (
+      <div
+        key={card.id}
+        className="bento-card" // 👈 Add this line right here!
+        style={{
+          gridArea: card.gridArea, // The desktop layout sizing
+          backgroundColor: 'rgba(255, 255, 255, 0.02)',
+          border: '1px solid rgba(255, 255, 255, 0.06)',
+          borderRadius: '20px',
+          padding: '2.5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+        }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = mode === 'portfolio' ? '#eab308' : '#818cf8';
                 e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.04)';
