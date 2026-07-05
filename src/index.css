@@ -28,9 +28,12 @@ body {
 /* Fallback for smaller screens so the layout stacks nicely on mobile devices */
 @media (max-width: 768px) {
   .bento-grid-container {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr !important; /* Collapse grid into 1 single column */
+    gap: 1rem !important;
   }
+  
   .bento-card {
-    grid-area: auto !important;
+    grid-area: auto !important; /* 💥 Forces every card to drop desktop column spans and stack smoothly! */
+    padding: 1.5rem !important; /* Shrink padding slightly so text doesn't clip on small edges */
   }
 }
