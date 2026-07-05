@@ -15,16 +15,6 @@ body {
   padding: 2rem;
 }
 
-/* The master CSS Grid wrapper */
-.bento-grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  grid-auto-rows: minmax(180px, auto); /* Rows auto-size but stay uniform */
-  gap: 1.5rem;
-  max-width: 1200px;
-  width: 100%;
-}
-
 /* Fallback for smaller screens so the layout stacks nicely on mobile devices */
 @media (max-width: 768px) {
   .bento-grid-container {
