@@ -284,10 +284,8 @@ export default function App() {
             ))}
           </div>
           <div style={{ fontSize: '0.75rem', opacity: 0.4 }}>
-            © {new Date().getFullYear()} Julian Vance. All rights reserved.
-            <p>
-                Powered by zimbru.dev
-            </p>
+            © {new Date().getFullYear()} Julian Vance. All rights reserved.  |  Powered by zimbru.dev
+            
           </div>
         </div>
       </footer>
